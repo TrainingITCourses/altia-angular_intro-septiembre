@@ -1,11 +1,11 @@
 {
   "name": "altia-angular-intro-septiembre",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+  "version": "14.0.0",
+  "description": "Introductory course of Angular",
+  "author": {
+    "name": "Alberto Basalo",
+    "email": "albertobasalo@hotmail.com",
+    "url": "https://albertobasalo.dev"
   },
   "private": true,
   "dependencies": {
