@@ -7,6 +7,12 @@
     "email": "albertobasalo@hotmail.com",
     "url": "https://albertobasalo.dev"
   },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve -o --port=4214",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.2.0",
