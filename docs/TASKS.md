@@ -12,9 +12,9 @@
 
 ## 1. Templates
 
-- [ ] Show agencies counter
-- [ ] List all
-- [ ] Show agency details
+- [x] Show agencies counter
+- [x] List all
+- [x] Show agency details
 - [ ] Active agencies in bold, pending agencies in italic
 - [ ] Show an icon to indicate different operation ranges
 - [ ] Show trips counter
