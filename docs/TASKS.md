@@ -15,10 +15,10 @@
 - [x] Show agencies counter
 - [x] List all
 - [x] Show agency details
-- [ ] Active agencies in bold, pending agencies in italic
-- [ ] Show an icon to indicate different operation ranges
-- [ ] Show trips counter
-- [ ] List all trips
-- [ ] Show trip details
-- [ ] Confirmed trips in green, waiting trips in orange
-- [ ] Show an icon to indicate the trip kind
+- [x] Active agencies in bold, pending agencies in italic
+- [x] Show an icon to indicate different operation ranges
+- [x] Show trips counter
+- [x] List all trips
+- [x] Show trip details
+- [x] Confirmed trips in green, waiting trips in orange
+- [x] Show an icon to indicate the trip kind

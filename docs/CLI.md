@@ -20,3 +20,5 @@ npm install @picocss/pico
 # ✍🏼 angular.json : "./node_modules/@picocss/pico/css/pico.fluid.classless.min.css",
 
 ```
+
+## 1. Templates
