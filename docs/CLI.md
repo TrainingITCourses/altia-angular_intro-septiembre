@@ -15,4 +15,8 @@ npx @angular/cli new altia-angular_intro-septiembre --minimal=true --routing=tru
 # run
 npm start
 
+# Add a bit of style
+npm install @picocss/pico
+# ✍🏼 angular.json : "./node_modules/@picocss/pico/css/pico.fluid.classless.min.css",
+
 ```

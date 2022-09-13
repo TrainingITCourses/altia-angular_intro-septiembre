@@ -8,4 +8,4 @@
 - [x] Run the application
 - [x] Clean root component
 - [x] Install a CSS framework (_picocss_)
-- [ ] Root layout (header-main-footer)
+- [x] Root layout (header-main-footer)
