@@ -3,39 +3,24 @@ import { Component } from "@angular/core";
 @Component({
   selector: "app-root",
   template: `
-    <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center" class="content">
-      <h1>Welcome to {{ title }}!</h1>
-      <span style="display: block">{{ title }} app is running!</span>
-    </div>
-    <h2>Here are some links to help you start:</h2>
-    <ul>
-      <li>
-        <h2>
-          <a target="_blank" rel="noopener" href="https://angular.io/tutorial">
-            Tour of Heroes
-          </a>
-        </h2>
-      </li>
-      <li>
-        <h2>
-          <a target="_blank" rel="noopener" href="https://angular.io/cli">
-            CLI Documentation
-          </a>
-        </h2>
-      </li>
-      <li>
-        <h2>
-          <a target="_blank" rel="noopener" href="https://blog.angular.io/">
-            Angular blog
-          </a>
-        </h2>
-      </li>
-    </ul>
-    <router-outlet></router-outlet>
+    <header>
+      <h1>Altia Septiembre</h1>
+    </header>
+    <main>
+      <article>
+        <h3>We work with several agencies</h3>
+      </article>
+      <article>
+        <h3>Offering several trips</h3>
+      </article>
+      <router-outlet></router-outlet>
+    </main>
+    <footer>
+      <h6>Altia Septiembre</h6>
+      <p>Welcome on board</p>
+      <a href="https://twitter.com/albertobasalo">Alberto Basalo</a>
+    </footer>
   `,
   styles: [``],
 })
-export class AppComponent {
-  title = "altia-angular_intro-septiembre";
-}
+export class AppComponent {}

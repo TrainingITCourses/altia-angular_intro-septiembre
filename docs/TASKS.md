@@ -7,5 +7,5 @@
 - [x] Know the structure of the application
 - [x] Run the application
 - [x] Clean root component
-- [ ] Install a CSS framework (_picocss_)
+- [x] Install a CSS framework (_picocss_)
 - [ ] Root layout (header-main-footer)
