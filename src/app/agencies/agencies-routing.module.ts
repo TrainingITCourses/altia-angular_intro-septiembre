@@ -11,6 +11,13 @@ const routes: Routes = [
         (m) => m.AgenciesNewModule
       ),
   },
+  {
+    path: ":id",
+    loadChildren: () =>
+      import("./agencies-view/agencies-view.module").then(
+        (m) => m.AgenciesViewModule
+      ),
+  },
 ];
 
 @NgModule({
