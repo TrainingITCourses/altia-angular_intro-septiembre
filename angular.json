@@ -12,7 +12,7 @@
           "skipTests": true,
           "flat": true,
           "type": "Page",
-          "selector": "false"
+          "skipSelector": true
         },
         "@schematics/angular:class": {
           "skipTests": true

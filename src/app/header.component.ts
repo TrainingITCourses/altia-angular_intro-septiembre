@@ -10,13 +10,23 @@ import { Component } from "@angular/core";
         </ul>
         <ul>
           <li><a routerLink="/agencies">➡️ Agencies</a></li>
-          <!-- <li><a routerLink="/auth/register">🔏 Register</a></li>
-          <li><a routerLink="/auth/login">🔐 Login</a></li> -->
+          <li><a routerLink="/auth/register">🔏 Register</a></li>
+          <li><a routerLink="/auth/login">🔐 Login</a></li>
         </ul>
       </nav>
     </header>
   `,
-  styles: [],
+  styles: [
+    `
+      a {
+        text-decoration: underline;
+        margin-left: 0.4rem;
+      }
+      .title {
+        font-weight: bold;
+      }
+    `,
+  ],
 })
 export class HeaderComponent {
   title = "🚀 Astro Bookings!";

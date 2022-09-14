@@ -17,7 +17,21 @@ const routes: Routes = [
     loadChildren: () =>
       import("./contact/contact.module").then((m) => m.ContactModule),
   },
-  { path: 'agencies', loadChildren: () => import('./agencies/agencies.module').then(m => m.AgenciesModule) },
+  {
+    path: "agencies",
+    loadChildren: () =>
+      import("./agencies/agencies.module").then((m) => m.AgenciesModule),
+  },
+  {
+    path: "auth/login",
+    loadChildren: () =>
+      import("./auth/login/login.module").then((m) => m.LoginModule),
+  },
+  {
+    path: "auth/register",
+    loadChildren: () =>
+      import("./auth/register/register.module").then((m) => m.RegisterModule),
+  },
   {
     path: "**",
     redirectTo: "",
