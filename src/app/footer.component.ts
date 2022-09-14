@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-
+import { environment } from "src/environments/environment";
 @Component({
   selector: "app-footer",
   template: `
@@ -20,7 +20,7 @@ import { Component } from "@angular/core";
   styles: [],
 })
 export class FooterComponent {
-  title = "🚀 Astro Bookings!";
+  title = environment.title;
   subtitle = "Welcome on board";
   subtitleStyle = "font-style: italic";
   author = "Alberto Basalo";

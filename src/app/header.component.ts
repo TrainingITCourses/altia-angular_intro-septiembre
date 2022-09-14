@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-header",
@@ -29,5 +30,5 @@ import { Component } from "@angular/core";
   ],
 })
 export class HeaderComponent {
-  title = "🚀 Astro Bookings!";
+  title = environment.title;
 }
