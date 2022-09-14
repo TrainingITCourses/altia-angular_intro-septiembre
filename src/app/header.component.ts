@@ -4,7 +4,11 @@ import { Component } from "@angular/core";
   selector: "app-header",
   template: `
     <header>
-      <h1>{{ title | uppercase }}</h1>
+      <nav>
+        <ul>
+          <a routerLink="/" class="title">{{ title | uppercase }}</a>
+        </ul>
+      </nav>
     </header>
   `,
   styles: [],
