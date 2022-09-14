@@ -13,6 +13,11 @@ const routes: Routes = [
     component: AboutPage,
   },
   {
+    path: "contact",
+    loadChildren: () =>
+      import("./contact/contact.module").then((m) => m.ContactModule),
+  },
+  {
     path: "**",
     redirectTo: "",
   },
