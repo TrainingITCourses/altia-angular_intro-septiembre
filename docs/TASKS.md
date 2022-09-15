@@ -43,3 +43,18 @@
 - [x] Route for a login page (`auth/login`) bind lazy to LoginModule
 - [x] Route for a page to create a new agency (`/agencies/new`) bind lazy to AgencyModule
 - [x] Route for a parametric agency page (`/agencies/:id`) bind lazy to AgencyModule
+
+## 4. Forms
+
+- [x] Create a form for the contact page
+- [x] Validate and give feedback to the user
+
+## 5. Services
+
+- [x] Create a helper service
+- [x] Get Id form a route
+- [x] Get the error message form a control
+- [x] Create a data service
+- [x] Create a model interface for agencies
+- [x] Use service on agencies and view agency component
+- [x] Create a service for the agencies new use case

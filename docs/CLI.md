@@ -78,3 +78,22 @@ ng g m agencies/agenciesNew --route=new --module=agencies
 # and parametric routes
 ng g m agencies/agencies-view --route=:id --module=agencies
 ```
+
+## 4. Forms
+
+## 5. Services
+
+```bash
+# A generic stateless service
+ng g s services/helper
+
+# A generic stateful service
+ng g s services/data
+# with model interfaces
+ng g i models/agency --type=interface
+# optional edit in angular.json
+
+# An specific service
+ng g s agencies/agencies-new/agencies-new
+
+```
