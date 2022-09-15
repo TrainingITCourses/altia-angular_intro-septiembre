@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-contact",
@@ -8,24 +8,88 @@ import { FormBuilder, FormGroup } from "@angular/forms";
     <p>Send us a message</p>
     <form [formGroup]="contactForm">
       <div>
-        <label for="email">Your email, please</label>
-        <input id="email" type="email" name="email" formControlName="email" />
+        <label for="name">Your name</label>
+        <small *ngIf="mustShowError('name')">
+          {{ getErrorMessage("name") }}
+        </small>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          formControlName="name"
+          [attr.aria-invalid]="isInvalid('name')"
+        />
       </div>
-      <button (click)="onSave()">Send</button>
+      <div>
+        <label for="email">Your email, please</label>
+        <small *ngIf="mustShowError('email')">
+          {{ getErrorMessage("email") }}
+        </small>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          formControlName="email"
+          [attr.aria-invalid]="isInvalid('name')"
+        />
+      </div>
+      <div>
+        <label for="message">Your name</label>
+        <small *ngIf="mustShowError('message')">
+          {{ getErrorMessage("message") }}
+        </small>
+        <textarea
+          id="message"
+          name="message"
+          formControlName="message"
+          [attr.aria-invalid]="isInvalid('name')"
+        ></textarea>
+      </div>
+      <button (click)="onSave()" [disabled]="contactForm.invalid">Send</button>
     </form>
   `,
   styles: [],
 })
 export class ContactPage {
-  contactForm: FormGroup;
+  nameValidators = [Validators.required, Validators.minLength(2)];
+  modelForm = {
+    name: new FormControl("", this.nameValidators),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    message: new FormControl("Contact me, please", [Validators.maxLength(10)]),
+  };
 
-  constructor(formBuilder: FormBuilder) {
-    this.contactForm = formBuilder.group({
-      email: "",
-    });
+  contactForm = this.formBuilder.group(this.modelForm);
+
+  constructor(private formBuilder: FormBuilder) {}
+
+  mustShowError(controlName: string): boolean {
+    const control = this.contactForm.get(controlName);
+    if (control) {
+      return control.invalid && control.touched;
+    }
+    return false;
+  }
+
+  getErrorMessage(controlName: string): string {
+    const control = this.contactForm.get(controlName);
+    if (control && control.errors) {
+      return JSON.stringify(control.errors);
+    }
+    return "";
+  }
+
+  isInvalid(controlName: string): boolean {
+    const control = this.contactForm.get(controlName);
+    if (control) {
+      return control.invalid;
+    }
+    return false;
   }
 
   onSave() {
-    console.log(this.contactForm.value);
+    const modelValue = this.contactForm.value;
+    console.log(modelValue);
+    const payload = { email: modelValue.email };
+    // http.post("",payload)
   }
 }
