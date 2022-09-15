@@ -23,7 +23,7 @@ export class AgenciesNewPage {
   });
   constructor(
     private formBuilder: FormBuilder,
-    private agenciesNew: AgenciesNewService
+    private service: AgenciesNewService
   ) {}
 
   onSave(): void {
@@ -33,6 +33,6 @@ export class AgenciesNewPage {
       range: value.range || "",
       status: value.status || "",
     };
-    this.agenciesNew.saveAgency(agency);
+    this.service.saveAgency(agency);
   }
 }
