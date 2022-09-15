@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { HelperService } from "../services/helper.service";
 
 @Component({
   selector: "app-contact",
@@ -60,7 +61,10 @@ export class ContactPage {
 
   contactForm = this.formBuilder.group(this.modelForm);
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private helper: HelperService
+  ) {}
 
   mustShowError(controlName: string): boolean {
     const control = this.contactForm.get(controlName);
@@ -70,13 +74,8 @@ export class ContactPage {
     return false;
   }
 
-  getErrorMessage(controlName: string): string {
-    const control = this.contactForm.get(controlName);
-    if (control && control.errors) {
-      return JSON.stringify(control.errors);
-    }
-    return "";
-  }
+  getErrorMessage = (controlName: string): string =>
+    this.helper.getErrorMessage(this.contactForm, controlName);
 
   isInvalid(controlName: string): boolean {
     const control = this.contactForm.get(controlName);
