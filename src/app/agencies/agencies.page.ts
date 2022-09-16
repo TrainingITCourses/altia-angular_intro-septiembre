@@ -8,11 +8,7 @@ import { ApiService } from "../services/api.service";
     <h2>Agencies page</h2>
     <article>
       <button (click)="onNewClick()">➕ Add new Agency</button>
-      <ul>
-        <li *ngFor="let agency of agencies">
-          <a [routerLink]="agency.id">{{ agency.name }}</a>
-        </li>
-      </ul>
+      <app-agencies-list [agencies]="agencies"></app-agencies-list>
     </article>
   `,
   styles: [],
