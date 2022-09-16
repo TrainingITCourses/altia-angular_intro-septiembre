@@ -29,6 +29,12 @@
       "name": "Roskosmos Altia",
       "range": "Orbital",
       "status": "Pending"
+    },
+    {
+      "id": "india-aerospace",
+      "name": "India AeroSpace",
+      "range": "Orbital",
+      "status": "Pending"
     }
   ],
   "trips": [
