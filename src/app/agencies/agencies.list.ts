@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Agency } from "../models/agency.interface";
 
 @Component({
@@ -13,10 +13,6 @@ import { Agency } from "../models/agency.interface";
   `,
   styles: [],
 })
-export class AgenciesList implements OnInit {
+export class AgenciesList {
   @Input() agencies: Agency[] = [];
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }
