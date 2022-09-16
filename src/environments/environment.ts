@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   title: "🚀 Astro Bookings!",
+  apiServerUrl: "http://localhost:3000",
 };
 
 /*

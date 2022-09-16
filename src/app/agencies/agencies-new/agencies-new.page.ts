@@ -1,12 +1,13 @@
 import { Component } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
+import { Router } from "@angular/router";
 import { Agency } from "src/app/models/agency.interface";
 import { AgenciesNewService } from "./agencies-new.service";
 
 @Component({
   template: `
     <h2>➕ Create a new agency record</h2>
-    <form>
+    <form [formGroup]="formGroup">
       <input type="text" placeholder="name" />
       <input type="text" placeholder="range" />
       <input type="text" placeholder="status" />
@@ -17,13 +18,14 @@ import { AgenciesNewService } from "./agencies-new.service";
 })
 export class AgenciesNewPage {
   formGroup = this.formBuilder.nonNullable.group({
-    name: "Nasa Altia",
+    name: "ChinaKosmos Altia",
     range: "Orbital",
     status: "Pending",
   });
   constructor(
     private formBuilder: FormBuilder,
-    private service: AgenciesNewService
+    private service: AgenciesNewService,
+    private router: Router
   ) {}
 
   onSave(): void {
@@ -33,6 +35,13 @@ export class AgenciesNewPage {
       range: value.range || "",
       status: value.status || "",
     };
-    this.service.saveAgency(agency);
+    console.log("saving...", agency);
+    this.service.saveAgency$(agency).subscribe({
+      next: (body) => {
+        console.log("saved!", body);
+        this.router.navigate(["agencies"]);
+      },
+    });
+    console.log("sent!", agency);
   }
 }

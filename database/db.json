@@ -17,6 +17,18 @@
       "name": "Virgin Way",
       "range": "Orbital",
       "status": "Pending"
+    },
+    {
+      "id": "nasa-altia",
+      "name": "Nasa Altia",
+      "range": "Orbital",
+      "status": "Pending"
+    },
+    {
+      "id": "roskosmos-altia",
+      "name": "Roskosmos Altia",
+      "range": "Orbital",
+      "status": "Pending"
     }
   ],
   "trips": [

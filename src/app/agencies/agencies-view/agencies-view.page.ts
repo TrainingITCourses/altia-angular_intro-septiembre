@@ -1,30 +1,42 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Agency } from "src/app/models/agency.interface";
-import { DataService } from "src/app/services/data.service";
+import { ApiService } from "src/app/services/api.service";
 import { HelperService } from "src/app/services/helper.service";
 
 @Component({
+  styles: [],
   template: `
     <article *ngIf="agency; else noData">
       <h2>{{ agency.name }}</h2>
       <pre> {{ agency | json }} </pre>
+      <button (click)="onRemove()">➖ Remove Agency</button>
     </article>
     <ng-template #noData>Agency data coming soon... 🔭</ng-template>
   `,
-  styles: [],
 })
 export class AgenciesViewPage implements OnInit {
   agency: Agency | undefined;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private helper: HelperService,
-    private data: DataService
+    private api: ApiService
   ) {}
 
   ngOnInit(): void {
     const agencyId = this.helper.getIdFromRoute(this.route);
-    this.agency = this.data.getAgencyById(agencyId);
+    this.api.getAgencyById$(agencyId).subscribe({
+      next: (body) => (this.agency = body),
+    });
+  }
+
+  onRemove() {
+    if (this.agency) {
+      this.api
+        .deleteAgency$(this.agency.id)
+        .subscribe(() => this.router.navigate(["agencies"]));
+    }
   }
 }
