@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { map, Observable, tap } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Agency } from "../models/agency.interface";
 
@@ -26,7 +26,22 @@ export class ApiService {
   }
 
   getAgencies$(): Observable<Agency[]> {
-    return this.http.get<Agency[]>(this.agenciesUrl);
+    return this.http.get<Agency[]>(this.agenciesUrl).pipe(
+      tap((agencies) => console.log("Agencies received: ", agencies.length)),
+      map((agencies) =>
+        agencies.map((agency) => {
+          agency.name = "🔭 " + agency.name.toUpperCase();
+          return agency;
+        })
+      )
+    );
+  }
+
+  getActiveAgencies$(): Observable<Agency[]> {
+    return this.getAgencies$().pipe(
+      map((agencies) => agencies.filter((a) => a.status === "Active")),
+      tap((agencies) => console.log("Agencies count: ", agencies.length))
+    );
   }
 
   getAgencyById$(id: string): Observable<Agency> {

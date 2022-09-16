@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { Observable } from "rxjs";
+import { catchError, Observable, of } from "rxjs";
 import { Agency } from "../models/agency.interface";
 import { ApiService } from "../services/api.service";
 
@@ -14,11 +14,19 @@ import { ApiService } from "../services/api.service";
         [agencies]="body"
       ></app-agencies-list>
     </article>
+    <pre *ngIf="error"> 💣</pre>
   `,
   styles: [],
 })
 export class AgenciesPage {
-  agencies$: Observable<Agency[]> = this.api.getAgencies$();
+  error = false;
+  agencies$: Observable<Agency[]> = this.api.getActiveAgencies$().pipe(
+    catchError((e) => {
+      console.warn("Catch error", e);
+      this.error = true;
+      return of([]);
+    })
+  );
 
   constructor(private router: Router, private api: ApiService) {}
 
